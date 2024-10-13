@@ -3,7 +3,21 @@
     padding: 0;
     box-sizing: border-box;
 }
+@media (max-width: 768px) {
+    header nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
 
+    .servico-item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .texto-servico {
+        margin-left: 0;
+    }
+}
 body {
     font-family: lora;
     background-color: #111; /* Fundo dark */
@@ -42,6 +56,7 @@ nav ul li a:hover {
     font-size: 2.5em;
     text-align: center;
     margin-bottom: 10px;
+    color: #6404ac;
 }
 #sobre{
     background-color: #222;
@@ -57,15 +72,9 @@ nav ul li a:hover {
 }
 
 .blinking-title {
-    font-size: 2.5rem;
-    color: #6404ac;
-    animation: blink 1s infinite, sparkle 1.5s infinite;
-}
-.subtitle{
-    margin-left: 100px;
-    margin-right: 100px;
+    font-size: 2.0rem;
+    color: white; /* Cor do texto branco */
     font-style: italic;
-    text-align: right;
 }
 .text-about{
     text-align: justify;
@@ -109,42 +118,62 @@ nav ul li a:hover {
     text-decoration: none;
     cursor: pointer;
 }
-.polaroid-container {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 55px; /* Espaçamento entre as polaroids */
-    margin-bottom: 10px;
-    margin-top: 10px;
+/* Contêiner flexível para galeria e texto */
+.gallery-text-container {
+    display: flex; /* Alinha os itens lado a lado */
+    justify-content: space-between; /* Espaça os itens */
+    align-items: center; /* Alinha verticalmente */
+    margin-top: 20px;
+    text-align: justify;
+}
+.gallery-text-container p{
+    margin-top: 30px;
+    
 }
 
-.polaroid {
-    background-color: #222;
-    padding: 10px 5px 25px 5px; /* Adicionando mais espaço embaixo para efeito polaroid */
-    border: 2px solid #6404ac;
-    box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
-    text-align: center;
-    width: 150px; /* Definindo largura padrão da polaroid */
-    transition: transform 0.3s ease;
+.slideshow-container {
+    flex: 1; /* Permite que a galeria ocupe uma parte do espaço */
 }
-
-.polaroid img {
-    width: 100%; /* Faz a imagem preencher o polaroid */
+.slideshow-container img {
+    width: 100%; /* Ajusta a largura da imagem para ocupar 100% do contêiner */
     height: auto; /* Mantém a proporção da imagem */
-    max-height: 100px; /* Limita a altura máxima da imagem */
-    object-fit: cover; /* Corta a imagem se necessário, sem distorcer */
+    max-width: 500px; /* Define uma largura máxima */
+    max-height: 100%; /* Define uma altura máxima */
+    border-radius: 8px; /* Arredonda as bordas das imagens */
+}
+.mySlides {
+    position: relative; /* Necessário para o object-fit funcionar corretamente */
+    overflow: hidden; /* Esconde parte da imagem que sai do contêiner */
+    width: 500px; /* Largura fixa para o contêiner de imagem */
+    height: 500px; /* Altura fixa para o contêiner de imagem */
 }
 
-.polaroid:hover {
-    transform: scale(1.1) rotate(5deg); /* Animação de hover */
+.slideshow-container img {
+    width: 100%; /* Ajusta a largura da imagem para ocupar 100% do contêiner */
+    height: 100%; /* Ajusta a altura da imagem para ocupar 100% do contêiner */
+    object-fit: cover; /* Corta a imagem para que se encaixe perfeitamente no contêiner */
+    border-radius: 8px; /* Arredonda as bordas das imagens */
 }
 
-.polaroid p {
-    margin-top: 10px;
-    font-size: 0.9rem; /* Tamanho do texto da legenda */
-    color: #fff;
+.gallery-text {
+    flex: 1; /* Permite que o texto ocupe uma parte do espaço */
+    margin-left: 20px; /* Espaço entre a galeria e o texto */
 }
+
+.mySlides {
+    display: none; /* Esconde todas as slides por padrão */
+}
+.line-break {
+    height: 2px; /* Altura da linha */
+    background-color: #6404ac; /* Cor principal, substitua pelo seu código de cor */
+    margin: 20px 0; /* Espaçamento acima e abaixo da linha */
+}
+
+img {
+    width: 100%; /* Ajusta a imagem para ocupar 100% do espaço do contêiner */
+    border-radius: 8px; /* Exemplo de borda arredondada */
+}
+
 footer {
     margin-top: 40px;
 }
@@ -160,9 +189,6 @@ footer {
     color: #6404ac; /* Cor roxa ao passar o mouse */
 }
 
-#contato h2 {
-    margin-bottom: 20px;
-}
 
 #apresentacao, #sobre, #servicos, #depoimentos {
     margin: 40px 0;
@@ -184,7 +210,7 @@ footer {
 #servicos h2 {
     margin-bottom: 20px;
     font-size: 2.5em;
-    color: #ffffff;
+    color: #6404ac;
 }
 
 .servico-item {
@@ -253,13 +279,13 @@ footer {
 #metodologia h2 {
     font-family: 'Lora', serif;
     font-size: 3em;
-    color: #fff;
+    color: #6404ac;
 }
 
 #metodologia h3 {
     font-family: 'Dancing Script', cursive; /* Estilo caligráfico */
     font-size: 2em;
-    color: #fff;
+    color: #6404ac;
     margin-bottom: 40px;
 }
 
@@ -314,6 +340,7 @@ footer {
     font-size: 2.5em;
     text-align: center;
     margin: 10px 0 10px 0;
+    color: #6404ac;
 }
 
 .footer{
